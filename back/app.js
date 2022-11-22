@@ -9,6 +9,3 @@ const productos=require("./routes/products")
 
 app.use('/api',productos)//se cambiara masa adelante
 module.exports = app
-
-
-

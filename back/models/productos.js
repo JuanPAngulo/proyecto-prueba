@@ -26,11 +26,11 @@ const productosScheme = mongoose.Schema({
         enum:{
             values:[
                 "laptop",
-                "computadoras Gamers",
-                "consolas",
-                "Realidad Virtual",
-                "Equipos AlmacenDtos",
-                "equipos smartphone"
+                "ComputadorasGamers",
+                "Consolas",
+                "RealidadVirtual",
+                "EquiposAlmacenDtos",
+                "Smartphone"
             ]
         }
     },
@@ -41,8 +41,19 @@ const productosScheme = mongoose.Schema({
         default:0.0
 
     },
-   imagen: {String
-   },
+    imagen:[
+        {
+            public_id:{
+                type:String,
+                required:true
+            },
+            url:{
+                type:String,
+                required:true
+            }
+        }
+    ],
+   
 
     inventario:{
         type:Number,
@@ -50,6 +61,10 @@ const productosScheme = mongoose.Schema({
         maxlength:[5,"cantidad maxima del producto limite 9999"],
         default:0
 
+    },
+    numCalificaciones:{
+        type:Number,
+        default:0
     },
 
     fechaCreacion:{

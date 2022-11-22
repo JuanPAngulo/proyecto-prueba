@@ -1,10 +1,15 @@
-//const { restart } = require("nodemon")
-const producto=require("../models/productos")
-
+const producto=require("../models/productos")//const { restart } = require("nodemon")
+const fetch = (url)=> ('node-fetch').then(({default:fetch})=>fetch(url));//usurpacion
 
 //ver lista productos
 exports.getProducts=async (req,res,next) =>{
     const productos= await producto.find();
+    if (!productos){
+        return res.status(404).json({
+            success:false,
+            error:true
+        })
+    }
     res.status (200).json({
         success:true,
         count:productos.length,
@@ -30,7 +35,8 @@ exports.getProductById =async(req,res,next)=>{
     if (!product){
         return res.status(404).json({
         success:false,
-        message:'no se encuentra producto'
+        message:'no se encuentra producto',
+        error:true
         })
 
     }
