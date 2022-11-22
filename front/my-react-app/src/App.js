@@ -6,9 +6,9 @@ import Home from './components/Home';
 import { ProductDetails } from './components/products/ProductDetails';
 //router traido desde el  react-router-dom(no es el de express)
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Dashboard } from './components/admin/Dashboard';
 //import Cart from './components/cart/Cart';
 /*import { LoginPage } from './components/Admin/Login';*/
-
 
 
 
@@ -25,7 +25,8 @@ function App() {
   <Route path="/" element= {<Home />}/>
   <Route path= "/Home" element= {<Home />}/>
   <Route path="/product/:id" element={<ProductDetails/>}/>
-
+ <Route path='/admin/dashboard' element ={<Dashboard/>}/>
+ 
   </Routes> 
  
 
